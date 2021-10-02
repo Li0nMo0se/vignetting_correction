@@ -3,7 +3,7 @@ import skimage.exposure
 from scipy.ndimage import gaussian_filter
 
 
-def log_entropy(image, sigma_smooth=2.25):
+def log_entropy(image, sigma_smooth):
     N = 256
     n_hist = np.zeros(N, dtype=float)
 
@@ -83,22 +83,31 @@ def rgb_to_luminance(image):
     return 0.2126 * image[..., 0] + 0.7152 * image[..., 1] + 0.0722 * image[..., 2]
 
 
-def correct_vignetting(image):
+def correct_vignetting(image, sigma_smooth):
+
+    if image.ndim != 3:
+        raise ValueError(f"Image must be a 3D array (2D colored image). Got {image.ndim}D")
+
+    if sigma_smooth is None:
+        sigma_smooth = 2.25  # Default value
+    if sigma_smooth < 0:
+        raise ValueError(f"Sigma smooth must be >= 0. Got {sigma_smooth}")
+
     gray_image = rgb_to_luminance(image)
 
     (a, b, c) = (0.0, 0.0, 0.0)
     delta = 8.0
-    h_min = log_entropy(gray_image)
+    h_min = log_entropy(gray_image, sigma_smooth)
     r = compute_r_matrix(gray_image)
 
     while delta > 1 / 256:
         v_arr = np.array([(a + delta, b, c), (a - delta, b, c),
-                        (a, b + delta, c), (a, b - delta, c),
-                        (a, b, c + delta), (a, b, c - delta)])
+                          (a, b + delta, c), (a, b - delta, c),
+                          (a, b, c + delta), (a, b, c - delta)])
 
         for v in v_arr:
             if verify_constraints(*v):
-                h_tmp = log_entropy(gray_image * g(r, *v))
+                h_tmp = log_entropy(gray_image * g(r, *v), sigma_smooth)
                 if h_tmp < h_min:
                     h_min = h_tmp
                     (a, b, c) = v

@@ -14,7 +14,7 @@ if __name__ == '__main__':
 
     input_filename = args.input
     input_image = plt.imread(input_filename)
-    output_image = correct_vignetting(input_image)
+    output_image = correct_vignetting(input_image, args.sigma)
 
     if args.output is None:
         filename_split = input_filename.split('.')
