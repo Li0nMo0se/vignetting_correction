@@ -1,3 +1,5 @@
 .env
 .idea
 .ipynb_checkpoints
+__pychache__
+vignetting/__pycache__

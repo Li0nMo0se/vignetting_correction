@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 import skimage.exposure
 from scipy.ndimage import gaussian_filter
 
@@ -108,5 +107,4 @@ def correct_vignetting(image):
         delta /= 2.0
 
     res = image * np.stack(3 * [g(r, a, b, c)], axis=2)
-
     return skimage.exposure.equalize_hist(res)
