@@ -1,0 +1,10 @@
+[build-system]
+requires = [
+    "numpy",
+    "matplotlib",
+    "scikit-image",
+    "scipy",
+    "setuptools>=42",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
