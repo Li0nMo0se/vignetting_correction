@@ -3,3 +3,5 @@
 .ipynb_checkpoints
 __pychache__
 vignetting/__pycache__
+__init__.cpython*
+vignetting.cpython*
