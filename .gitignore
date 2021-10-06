@@ -6,5 +6,5 @@ vignetting/__pycache__
 __init__.cpython*
 vignetting.cpython*
 dist
-src/vignetting*
-src/Vignetting*
+src/vignetting.egg*
+src/Vignetting.egg*

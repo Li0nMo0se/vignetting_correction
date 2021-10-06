@@ -67,6 +67,8 @@ def verify_constraints(a, b, c):
         return True
     if c > 0 and b ** 2 == 3 * a * c and -b >= 3 * c:
         return True
+    if c == 0:
+        return False
     q_p = (-2 * b + np.sqrt(4 * b ** 2 - 12 * a * c)) / (6 * c)
     if c > 0 and b ** 2 > 3 * a * c and q_p <= 0:
         return True
@@ -116,4 +118,4 @@ def correct_vignetting(image, sigma_smooth):
         delta /= 2.0
 
     res = image * np.stack(3 * [g(r, a, b, c)], axis=2)
-    return skimage.exposure.equalize_hist(res)
+    return np.clip(res, 0, 255).astype(np.uint8)
