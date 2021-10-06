@@ -14,13 +14,13 @@ The notebook [vignetting.ipynb](https://github.com/Li0nMo0se/vignetting_correcti
 
 ### Package vignetting
 
-### Installation
+#### Installation
 ```shell
 pip install -i https://test.pypi.org/simple/ vignetting==1.2.0 --extra-index-url=https://pypi.org/simple/
 
 ```
 
-### Usage
+#### Usage
 
 ```python
 from vignetting import correct_vignetting
