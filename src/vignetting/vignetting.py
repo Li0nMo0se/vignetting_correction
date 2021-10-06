@@ -1,5 +1,4 @@
 import numpy as np
-import skimage.exposure
 from scipy.ndimage import gaussian_filter
 
 
@@ -86,7 +85,22 @@ def rgb_to_luminance(image):
 
 
 def correct_vignetting(image, sigma_smooth):
+    """
+    Apply vignetting correction
 
+    Parameters
+    ----------
+    image : np.arrray
+        The input image to be corrected
+    sigma_smooth: float
+        The sigma smooth used by the gaussian kernel to compute the
+        log-intensity entropy
+
+    Returns
+    -------
+    np.array
+        The corrected image (array like `image`)
+    """
     if image.ndim != 3:
         raise ValueError(f"Image must be a 3D array (2D colored image). Got {image.ndim}D")
 
