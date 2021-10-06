@@ -16,7 +16,8 @@ The notebook [vignetting.ipynb](https://github.com/Li0nMo0se/vignetting_correcti
 
 ### Installation
 ```shell
-pip install vignetting --extra-index-url=https://pypi.org/simple/
+pip install -i https://test.pypi.org/simple/ vignetting==1.2.0 --extra-index-url=https://pypi.org/simple/
+
 ```
 
 ### Usage
