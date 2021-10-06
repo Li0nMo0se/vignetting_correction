@@ -55,8 +55,12 @@ optional arguments:
   </thead>
   <tbody>
     <tr>
-      <td><img src="https://raw.githubusercontent.com/Li0nMo0se/vignetting_correction/main/img/sample-1.jpeg"></td>
-      <td><img src="https://raw.githubusercontent.com/Li0nMo0se/vignetting_correction/main/img/sample-1-output.jpeg"></td>
+      <td><img src="https://raw.githubusercontent.com/Li0nMo0se/vignetting_correction/main/img/sample-2.jpg"></td>
+      <td><img src="https://raw.githubusercontent.com/Li0nMo0se/vignetting_correction/main/img/sample-2-corrected.jpg"></td>
+    </tr>
+    <tr>
+      <td><img src="https://raw.githubusercontent.com/Li0nMo0se/vignetting_correction/main/img/sample-1.jpg"></td>
+      <td><img src="https://raw.githubusercontent.com/Li0nMo0se/vignetting_correction/main/img/sample-1-corrected.jpg"></td>
     </tr>
   </tbody>
 </table>
