@@ -1,5 +1,5 @@
 from argparse import ArgumentParser
-from vignetting import correct_vignetting
+from src.vignetting import correct_vignetting
 import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
